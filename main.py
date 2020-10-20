@@ -2,12 +2,10 @@ from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
 import io
 import pandas as pd
+import APIcall
 
 app = FastAPI()
-data = { "1" : {"item_id":1, "name": "item1"},
-        "2" : {"item_id":2, "name": "item2"},
-        "3" : {"item_id":3, "name": "item3"},
-        "4" : {"item_id":4, "name": "item4"}}
+data = APIcall.get_weather_data()
 
 @app.get("/")
 def read_root():
